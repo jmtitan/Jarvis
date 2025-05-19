@@ -1,0 +1,8 @@
+# This file exists to maintain the directory structure in Git.
+# The actual model files (.bin) should be downloaded separately.
+
+Required models:
+- tiny.en.bin (74MB) - English model, small but fast
+- base.en.bin (141MB) - English model, more accurate
+
+Download from: https://github.com/ggerganov/whisper.cpp/releases 

@@ -1,0 +1,33 @@
+audio:
+  channels: 1
+  device_index: 1
+  frame_ms: 30
+  sample_rate: 16000
+hotkeys:
+  adjust_speed: ctrl+f3
+  switch_voice: ctrl+f2
+  toggle_listening: ctrl+f1
+ollama:
+  host: http://127.0.0.1:11434
+  max_tokens: 1000
+  model: llama3
+  temperature: 0.7
+stt:
+  device: cpu
+  language: en
+  max_length: 5000
+  model: base.en
+  step_size: 1000
+system:
+  auto_start: true
+  log_level: INFO
+  show_tray: true
+tts:
+  default_engine: edge
+  default_voice: en-US-GuyNeural
+  rate: 0.1
+  volume: 1.0
+wake_word:
+  enabled: true
+  sensitivity: 0.7
+  word: Hey Jarvis

@@ -1,0 +1,57 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+venv/
+ENV/
+jarvis/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Whisper model files (keep directory structure with .gitkeep)
+models/*.bin
+models/*.txt
+models/*.json
+
+# Whisper binary files (keep directory structure with .gitkeep)
+whisper_bin/*.exe
+whisper_bin/*.dll
+whisper_bin/*.bin
+whisper_bin/*.txt
+whisper_bin/*.json
+
+# Temporary files
+temp/
+tmp/
+*.mp3
+*.wav
+*.temp
+*.tmp
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini 

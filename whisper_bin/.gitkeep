@@ -1,0 +1,10 @@
+# This file exists to maintain the directory structure in Git.
+# The actual binary files (.exe, .dll) should be downloaded separately.
+
+Required binaries:
+- whisper.dll - Core library
+- main.exe - Main executable for command-line usage
+- server.exe - Server executable (optional)
+- SDL2.dll - Required for audio playback
+
+Download from: https://github.com/ggerganov/whisper.cpp/releases 

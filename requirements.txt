@@ -1,0 +1,15 @@
+pywin32>=305
+pystray>=0.19.4
+Pillow>=9.0.0
+keyboard>=0.13.5
+PyYAML>=6.0
+sounddevice>=0.4.6
+scipy>=1.10.0
+edge-tts>=6.1.9
+requests>=2.31.0
+playsound==1.2.2
+PyAudio>=0.2.13
+numpy>=1.23.0
+webrtcvad>=2.0.10
+asyncio>=3.4.3
+tkinter 
