@@ -1,5 +1,5 @@
 # Jarvis Voice Assistant
-![ironman](./pics/ironman.jpg =100*100)
+![ironman](./pics/ironman.jpg){:height="50%" width="50%"}
 Jarvis is a Windows-based local voice assistant system featuring real-time voice activation, speech recognition, local language model processing, and voice synthesis. It's designed to operate completely offline, ensuring privacy while providing a comprehensive voice interaction experience.
 
 
