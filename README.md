@@ -154,7 +154,7 @@ pip install -r requirements.txt
 - 个性化对话风格适应
 - 用户偏好学习和记忆
 
-#### 3. MCP（Master Control Program）
+#### 3. MCP（Model Context Protocol）
 - 允许Jarvis操作桌面文件和基本软件
 - 实现查看/回复邮件功能
 - 制定和管理日程计划
@@ -318,7 +318,7 @@ The project uses Whisper.cpp for speech recognition, which requires model files 
 - Personalized conversation style adaptation
 - User preference learning and memory
 
-#### 3. MCP (Master Control Program)
+#### 3. MCP (Model Context Protocol)
 - Allow Jarvis to operate desktop files and basic software
 - Implement email viewing/replying functionality
 - Schedule planning and management
