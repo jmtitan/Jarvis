@@ -11,7 +11,7 @@ class OllamaClient:
         self.max_tokens = config['ollama']['max_tokens']
         
     async def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
-        """生成文本响应"""
+        """generate text response"""
         async with aiohttp.ClientSession() as session:
             payload = {
                 "model": self.model,
@@ -31,13 +31,13 @@ class OllamaClient:
                         return result.get('response', '')
                     else:
                         error_text = await response.text()
-                        raise Exception(f"Ollama API 错误: {error_text}")
+                        raise Exception(f"Ollama API error: {error_text}")
             except Exception as e:
-                print(f"调用 Ollama 失败: {e}")
+                print(f"call ollama failed: {e}")
                 return ""
                 
     async def list_models(self) -> list:
-        """获取可用模型列表"""
+        """get available model list"""
         async with aiohttp.ClientSession() as session:
             try:
                 async with session.get(f"{self.host}/api/tags") as response:
@@ -46,11 +46,11 @@ class OllamaClient:
                         return [model['name'] for model in result.get('models', [])]
                     return []
             except Exception as e:
-                print(f"获取模型列表失败: {e}")
+                print(f"get model list failed: {e}")
                 return []
                 
     async def pull_model(self, model_name: str) -> bool:
-        """拉取新模型"""
+        """pull new model"""
         async with aiohttp.ClientSession() as session:
             try:
                 async with session.post(
@@ -59,11 +59,11 @@ class OllamaClient:
                 ) as response:
                     return response.status == 200
             except Exception as e:
-                print(f"拉取模型失败: {e}")
+                print(f"pull model failed: {e}")
                 return False
                 
     def get_model_info(self) -> Dict[str, Any]:
-        """获取当前模型信息"""
+        """get current model info"""
         return {
             "name": self.model,
             "temperature": self.temperature,

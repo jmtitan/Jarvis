@@ -12,4 +12,6 @@ PyAudio>=0.2.13
 numpy>=1.23.0
 webrtcvad>=2.0.10
 asyncio>=3.4.3
-tkinter 
+tkinter
+winshell>=0.6
+pyshortcuts>=1.8.0 
