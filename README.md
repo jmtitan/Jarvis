@@ -1,6 +1,8 @@
-# Jarvis Voice Assistant / Jarvis 语音助手
-![ironman](./pics/ironman.jpg)
-
+# Jarvis Voice Assistant
+<p align="center">
+  <img src="./pics/ironman.jpg" width="256" height="256">
+</p>
+<p align="center">
 [English](#english) | [中文](#chinese)
 
 <a name="chinese"></a>
