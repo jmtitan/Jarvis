@@ -622,24 +622,12 @@ class JarvisAssistant:
                 self._stop_pygame_audio()
         
     async def _process_text(self, text):
-        """Process text and generate response"""
-        print("Processing text...")
+        """Processes the recognized text, gets a response, and speaks it."""
+        print(f"Processing text: {text}")
         
-        # Pause continuous mode timer during AI processing to avoid expiring while AI speaks
-        if self.continuous_mode and self.continuous_timer:
-            self.continuous_timer.cancel()
-            self.continuous_timer = None
-        
-        # Check if processing was interrupted before starting
-        if self.processing_interrupted:
-            print("Processing skipped due to interruption")
-            return
-        
-        # Check if LLM client is available
-        if not self.llm_client:
-            print("Error: LLM client is not initialized")
-            return
-            
+        # Reset interruption flag before processing
+        self.processing_interrupted = False
+
         try:
             # Build enhanced prompt with memory context
             if self.memory_manager:
@@ -648,14 +636,25 @@ class JarvisAssistant:
             else:
                 enhanced_prompt = text
                 print("Using simple prompt (memory manager not available)")
-            
-            # Call LLM to generate response
-            print(f"Calling LLM with enhanced prompt")
-            response = await self.llm_client.generate(enhanced_prompt)
-            
-            # Check for interruption after LLM call
+
+            # Load the system prompt from file
+            system_prompt_content = None
+            prompt_path = Path("prompts/Emma.md")
+            if prompt_path.is_file():
+                try:
+                    system_prompt_content = prompt_path.read_text(encoding="utf-8")
+                except Exception as e:
+                    print(f"Warning: Could not read system prompt file {prompt_path}: {e}")
+
+            # Generate response from LLM
+            response = await self.llm_client.generate(
+                enhanced_prompt,
+                system_prompt=system_prompt_content
+            )
+
+            # Check for interruption before proceeding
             if self.processing_interrupted:
-                print("Processing interrupted after LLM response")
+                print("Processing was interrupted after LLM generation, stopping.")
                 return
             
             if response:
