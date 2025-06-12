@@ -3,10 +3,26 @@ audio:
   device_index: 1
   frame_ms: 30
   sample_rate: 16000
+  speech_min_duration_ms: 800
+  speech_max_silence_ms: 2000
+  vad_sensitivity: 3
+  max_speech_duration_s: 15
 hotkeys:
   adjust_speed: ctrl+f3
   switch_voice: ctrl+f2
   toggle_listening: ctrl+f1
+memory:
+  # Memory system configuration
+  enabled: true
+  max_context_tokens: 2000
+  user_profile_tokens: 200
+  history_tokens: 500
+  long_term_tokens: 300
+  conversation_tokens: 500
+  max_conversation_messages: 10
+  auto_summarize_threshold: 20
+  fact_extraction_threshold: 5
+  cleanup_days: 30
 ollama:
   host: http://127.0.0.1:11434
   max_tokens: 1000
@@ -24,10 +40,11 @@ system:
   show_tray: true
 tts:
   default_engine: edge
-  default_voice: en-US-GuyNeural
+  default_voice: en-GB-LibbyNeural
+  # en-US-GuyNeural
   rate: 0.1
   volume: 1.0
 wake_word:
   enabled: true
   sensitivity: 0.7
-  word: Hey Jarvis
+  words: ["jarvis", "hey", "hi"]

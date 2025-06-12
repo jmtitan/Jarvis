@@ -1,0 +1,18 @@
+# Optional dependencies for enhanced memory functionality
+# Install with: pip install -r requirements_memory.txt
+
+# For advanced vector search and semantic similarity
+faiss-cpu==1.7.4
+# Alternative: faiss-gpu==1.7.4 (if you have GPU support)
+
+# For high-quality text embeddings
+sentence-transformers==2.2.2
+
+# Core dependencies (numpy is already included with sentence-transformers)
+numpy>=1.21.0
+
+# Installation instructions:
+# 1. Basic functionality works without these dependencies
+# 2. For better performance, install: pip install faiss-cpu sentence-transformers
+# 3. For GPU acceleration: pip install faiss-gpu sentence-transformers
+# 4. The memory system will automatically detect and use available libraries 

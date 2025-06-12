@@ -1,0 +1,1152 @@
+[
+  {
+    "id": "d9ab01f1-0515-4fff-b9a0-539949c05c51",
+    "type": "conversation",
+    "content": "User: What's the weather like today?\nAssistant: Today is sunny with a temperature of 22°C.",
+    "timestamp": "2025-05-24T17:51:26.157925",
+    "importance": 0.7,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "What's the weather like today?",
+      "ai_response": "Today is sunny with a temperature of 22°C.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "2b06fd4b-88c7-447c-b2bb-77ae720835cf",
+    "type": "conversation",
+    "content": "User: I prefer female voices for TTS\nAssistant: I've noted that you prefer female voices. I'll remember that for future conversations.",
+    "timestamp": "2025-05-24T17:51:26.168540",
+    "importance": 0.7,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "I prefer female voices for TTS",
+      "ai_response": "I've noted that you prefer female voices. I'll remember that for future conversations.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "636672b0-a736-47cc-940f-b9e90ef55392",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:51:26.177391",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "a2d3fb67-ce02-48ed-a0c6-d66d9040bfdb",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:51:26.185295",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "5272272d-c5b5-43de-8ad5-e11de41bd2bc",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:51:26.192803",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "8e343a79-2333-454d-acbd-02cb1ad0799c",
+    "type": "conversation",
+    "content": "User: Can you remind me about my meetings?\nAssistant: I don't have access to your calendar, but I can help you set reminders.",
+    "timestamp": "2025-05-24T17:51:26.201710",
+    "importance": 0.5,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "Can you remind me about my meetings?",
+      "ai_response": "I don't have access to your calendar, but I can help you set reminders.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "a484fdd6-1da0-4bce-a21e-1b51bd669f1f",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T17:51:26.211367",
+    "importance": 0.8,
+    "access_count": 1,
+    "last_accessed": "2025-05-24T17:51:26.409960",
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 6
+    }
+  },
+  {
+    "id": "2ef762a4-06d9-40fe-9619-2e6396c2f03c",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:51:26.219487",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "a4c9bcd5-5f56-449b-869d-2d1af674ff69",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:51:26.225994",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "6366e039-8eec-4d38-8184-3d45b8076bf2",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:51:26.234500",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "67bd9afe-337e-45ae-b9fb-c6a7cf75811c",
+    "type": "conversation",
+    "content": "User: I like having conversations in a casual style\nAssistant: Got it! I'll keep our conversations casual and friendly.",
+    "timestamp": "2025-05-24T17:51:26.243414",
+    "importance": 0.6,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "I like having conversations in a casual style",
+      "ai_response": "Got it! I'll keep our conversations casual and friendly.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "c9c5302a-2480-4dbb-89f8-2047edd6f47e",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T17:51:26.252700",
+    "importance": 0.8,
+    "access_count": 1,
+    "last_accessed": "2025-05-24T17:51:26.409960",
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 8
+    }
+  },
+  {
+    "id": "9a1df53e-fd27-417d-86dc-c0f9b6c14afe",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:51:26.260583",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "6feb19ab-53b3-4ed7-9795-75c91c7fe694",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:51:26.268118",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "dba80521-23f6-438a-ae92-3ad05764b575",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:51:26.276756",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "4846fe92-0cc4-45e8-9814-f0d524ff5935",
+    "type": "conversation",
+    "content": "User: What's my name again?\nAssistant: Based on our conversation, you're Demo User.",
+    "timestamp": "2025-05-24T17:51:26.286909",
+    "importance": 0.7,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "What's my name again?",
+      "ai_response": "Based on our conversation, you're Demo User.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "944b1114-f2c2-4d63-bcaa-b686e6dbc46f",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T17:51:26.296536",
+    "importance": 0.8,
+    "access_count": 1,
+    "last_accessed": "2025-05-24T17:51:26.409960",
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "653ffb9c-2345-437d-bec6-a30819d8e732",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:51:26.305395",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "fe4074f0-8046-43ca-8e87-c09697131e9c",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:51:26.314400",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "8622280e-e773-432c-a812-1aa11e18b50e",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:51:26.322994",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "07fd07f4-8a1c-4db3-a23e-557296a09bfd",
+    "type": "conversation",
+    "content": "User: Tell me a joke\nAssistant: Why don't scientists trust atoms? Because they make up everything!",
+    "timestamp": "2025-05-24T17:51:26.333372",
+    "importance": 0.5,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "Tell me a joke",
+      "ai_response": "Why don't scientists trust atoms? Because they make up everything!",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "0f5569d4-ab22-4eba-9217-fc66ad3a14aa",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T17:51:26.342368",
+    "importance": 0.8,
+    "access_count": 1,
+    "last_accessed": "2025-05-24T17:51:26.409960",
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "839bdb91-357a-44e7-b357-6b434fd7acc9",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:51:26.351797",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "ef832763-e275-4c08-a4e0-b606c8787e6a",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:51:26.359582",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "80103b82-4120-48ce-9989-83d663664e46",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:51:26.367617",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "e88a566b-a2b4-45ef-8b39-574bf6c7dd47",
+    "type": "conversation",
+    "content": "User: What's the weather like today?\nAssistant: Today is sunny with a temperature of 22°C.",
+    "timestamp": "2025-05-24T17:58:13.282076",
+    "importance": 0.7,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "What's the weather like today?",
+      "ai_response": "Today is sunny with a temperature of 22°C.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "c9693fad-b825-4a40-ab23-978298fcb12f",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T17:58:13.287094",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "79d070b6-617f-47c1-b8e8-0de18c7c3491",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:58:13.292093",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "75aa4fe2-06b0-43d5-a84e-4a30a394507b",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:58:13.300130",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "7cc58ce5-e7db-4f0a-ac71-c75961f1b760",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:58:13.304131",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "d4825b86-5bea-4d10-8db7-8d8cb36a3e92",
+    "type": "conversation",
+    "content": "User: I prefer female voices for TTS\nAssistant: I've noted that you prefer female voices. I'll remember that for future conversations.",
+    "timestamp": "2025-05-24T17:58:13.311149",
+    "importance": 0.7,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "I prefer female voices for TTS",
+      "ai_response": "I've noted that you prefer female voices. I'll remember that for future conversations.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "46b0262c-6f14-413c-8b1f-3c1f84d44b89",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T17:58:13.316159",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "293d0bbe-b373-4058-8862-be8b2bfd154b",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:58:13.320161",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "35247f40-3bed-48a7-921c-6444229c7cfe",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:58:13.324161",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "14efee34-1667-4395-8344-2d5f6a7b33e7",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:58:13.328175",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "d40444ab-0f1a-46dc-b902-24474b7223e0",
+    "type": "conversation",
+    "content": "User: Can you remind me about my meetings?\nAssistant: I don't have access to your calendar, but I can help you set reminders.",
+    "timestamp": "2025-05-24T17:58:13.333174",
+    "importance": 0.5,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "Can you remind me about my meetings?",
+      "ai_response": "I don't have access to your calendar, but I can help you set reminders.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "1c8619c9-4466-4ba5-928f-59b58acc44e5",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T17:58:13.338269",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "3142a20d-e162-40f3-a4b1-4cf80504046c",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:58:13.342269",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "96f183af-c09f-48ac-976c-5ca584f0515c",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:58:13.346617",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "6c21de47-e225-4b7b-b49e-5af4e3c10568",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:58:13.351012",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "51184753-ab7a-455f-8c66-047617601078",
+    "type": "conversation",
+    "content": "User: I like having conversations in a casual style\nAssistant: Got it! I'll keep our conversations casual and friendly.",
+    "timestamp": "2025-05-24T17:58:13.357027",
+    "importance": 0.6,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "I like having conversations in a casual style",
+      "ai_response": "Got it! I'll keep our conversations casual and friendly.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "80774918-27aa-43e6-8248-31b176a6dec6",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T17:58:13.361025",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "78865c92-6dc6-4210-90fe-cedd37c2abc4",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:58:13.365415",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "80c9d07c-4491-4746-896e-8346c72ec655",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:58:13.369419",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "e724f923-5adf-48ec-a1ff-18cc8544748c",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:58:13.373418",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "cb5f2b26-e0a7-4442-9d93-14f721b4a2d0",
+    "type": "conversation",
+    "content": "User: What's my name again?\nAssistant: Based on our conversation, you're Demo User.",
+    "timestamp": "2025-05-24T17:58:13.379773",
+    "importance": 0.7,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "What's my name again?",
+      "ai_response": "Based on our conversation, you're Demo User.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "fbf0ebc0-7494-4d2b-8a3e-35e57ed0f9bf",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T17:58:13.384276",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "27586646-e66f-472d-a532-b61f520a8454",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:58:13.388608",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "1890499f-492c-4ebe-9ce7-90ed18598786",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:58:13.392606",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "16beff22-8c59-4872-a887-7bb30a1c1660",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:58:13.397357",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "caccaeb8-2207-4054-94b3-a9e43bb94186",
+    "type": "conversation",
+    "content": "User: Tell me a joke\nAssistant: Why don't scientists trust atoms? Because they make up everything!",
+    "timestamp": "2025-05-24T17:58:13.403357",
+    "importance": 0.5,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "Tell me a joke",
+      "ai_response": "Why don't scientists trust atoms? Because they make up everything!",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "9824be61-8577-4e65-ae72-8ee31dff1a12",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T17:58:13.408635",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "3e8bedc5-f46b-47fb-b027-38b9f45489fc",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T17:58:13.412635",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "08823c4c-c1f2-443e-aa09-e5d1c9e5a4e2",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T17:58:13.417174",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "19f10025-226b-4f7a-87b8-81398950d542",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T17:58:13.422174",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "user_profile",
+    "type": "user_profile",
+    "content": "User profile: Demo User, prefers en language, voice: en-US-AriaNeural, style: friendly, interests: AI, music, travel, food, basketball, art, science, technology",
+    "timestamp": "2025-05-24T18:03:24.366736",
+    "importance": 1.0,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "name": "Demo User",
+      "language_preference": "en",
+      "voice_preference": "en-US-AriaNeural",
+      "conversation_style": "friendly",
+      "interests": [
+        "AI",
+        "music",
+        "travel",
+        "food",
+        "basketball",
+        "art",
+        "science",
+        "technology"
+      ],
+      "timezone": null,
+      "preferences": {}
+    }
+  },
+  {
+    "id": "2902fac4-05d1-4be8-907b-b39e196b0681",
+    "type": "conversation",
+    "content": "User: What's the weather like today?\nAssistant: Today is sunny with a temperature of 22°C.",
+    "timestamp": "2025-05-24T18:03:24.541949",
+    "importance": 0.7,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "What's the weather like today?",
+      "ai_response": "Today is sunny with a temperature of 22°C.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "cedc3009-70c3-42b7-aaa6-2ffab4401dac",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T18:03:24.546954",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "873f636f-36aa-4899-8705-0ab65ac128c6",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T18:03:24.551954",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "60df9536-a7f7-41f4-95ee-0684db025732",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T18:03:24.558977",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "85a5af1a-47c5-4bb1-9c93-3df63a0f74a4",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T18:03:24.562977",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "d26fd7c1-d753-40ff-969e-e40fe65cdf63",
+    "type": "conversation",
+    "content": "User: I prefer female voices for TTS\nAssistant: I've noted that you prefer female voices. I'll remember that for future conversations.",
+    "timestamp": "2025-05-24T18:03:24.571033",
+    "importance": 0.7,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "I prefer female voices for TTS",
+      "ai_response": "I've noted that you prefer female voices. I'll remember that for future conversations.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "ae17dda6-13c3-4265-8734-29c3fb703fb7",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T18:03:24.575378",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "a57b2f4a-61ac-4e33-9589-f67d2884f92d",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T18:03:24.580046",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "20d7e99b-9343-4cc4-b129-9b221fa2f594",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T18:03:24.585060",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "07421c6c-1380-41c0-b404-fcb2d4cef2af",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T18:03:24.588063",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "c07837d3-fe10-4a55-be94-3af58288b7b0",
+    "type": "conversation",
+    "content": "User: Can you remind me about my meetings?\nAssistant: I don't have access to your calendar, but I can help you set reminders.",
+    "timestamp": "2025-05-24T18:03:24.597448",
+    "importance": 0.5,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "Can you remind me about my meetings?",
+      "ai_response": "I don't have access to your calendar, but I can help you set reminders.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "86b2f741-87a8-42f2-8f43-b1b432000228",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T18:03:24.601447",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "48006513-6f81-43b6-b387-33f7ca7564b0",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T18:03:24.606955",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "5eca950d-3e17-452b-8a7b-bd148a5ee5a4",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T18:03:24.610955",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "690346b0-008d-49f2-8d35-1e9eb3df17f8",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T18:03:24.614966",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "7fd9de53-b1d1-4426-bf86-0b3534350f8f",
+    "type": "conversation",
+    "content": "User: I like having conversations in a casual style\nAssistant: Got it! I'll keep our conversations casual and friendly.",
+    "timestamp": "2025-05-24T18:03:24.621968",
+    "importance": 0.6,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "I like having conversations in a casual style",
+      "ai_response": "Got it! I'll keep our conversations casual and friendly.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "8b220dd0-080d-4d33-af8d-880d2e8c0074",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T18:03:24.625984",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "245cf0ba-d13a-442d-819e-3769231972b2",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T18:03:24.631983",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "d14db047-b0fb-4ba5-8168-103d53d5cbc2",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T18:03:24.636033",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "8f0fc3ea-c130-458f-bde0-56e1a8dec57a",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T18:03:24.640035",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "8280503e-0adf-4db9-bdc8-616e364e66af",
+    "type": "conversation",
+    "content": "User: What's my name again?\nAssistant: Based on our conversation, you're Demo User.",
+    "timestamp": "2025-05-24T18:03:24.647092",
+    "importance": 0.7,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "What's my name again?",
+      "ai_response": "Based on our conversation, you're Demo User.",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "9dd08944-ef6d-40b6-92b6-9fd13e4a4beb",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T18:03:24.652092",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "d61ffd1b-ea34-4815-acff-ebaa20074de5",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T18:03:24.656491",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "719a0ebd-3732-4a5d-969e-f76b2a4472c0",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T18:03:24.661501",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "f1652508-c819-468f-bd02-c714e7700869",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T18:03:24.664994",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "b2d03ef4-d424-4e18-950d-196a16e5fe81",
+    "type": "conversation",
+    "content": "User: Tell me a joke\nAssistant: Why don't scientists trust atoms? Because they make up everything!",
+    "timestamp": "2025-05-24T18:03:24.671998",
+    "importance": 0.5,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "user_input": "Tell me a joke",
+      "ai_response": "Why don't scientists trust atoms? Because they make up everything!",
+      "interaction_type": "conversation"
+    }
+  },
+  {
+    "id": "4c906656-9c4f-4870-9d25-a4544d8965c6",
+    "type": "long_term",
+    "content": "Conversation summary: User discussed preferences for voice settings and asked about weather information.",
+    "timestamp": "2025-05-24T18:03:24.676894",
+    "importance": 0.8,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "conversation_summary",
+      "message_count": 10
+    }
+  },
+  {
+    "id": "43eed890-debe-424e-b557-4dce68f6d68e",
+    "type": "preference",
+    "content": "User fact: - User prefers female voice",
+    "timestamp": "2025-05-24T18:03:24.681885",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "23c741b1-375f-4a45-89e6-eccb14087a51",
+    "type": "preference",
+    "content": "User fact: - User is interested in weather updates",
+    "timestamp": "2025-05-24T18:03:24.686432",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  },
+  {
+    "id": "10315565-54cc-4dd2-8b6c-6bfbda3f9c7b",
+    "type": "preference",
+    "content": "User fact: - User likes conversational style",
+    "timestamp": "2025-05-24T18:03:24.690526",
+    "importance": 0.9,
+    "access_count": 0,
+    "last_accessed": null,
+    "metadata": {
+      "type": "user_fact",
+      "extracted_from": "conversation"
+    }
+  }
+]

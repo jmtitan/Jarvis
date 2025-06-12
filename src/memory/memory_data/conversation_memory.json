@@ -1,0 +1,55 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "I prefer female voices for TTS",
+      "timestamp": "2025-05-24T18:03:24.570034"
+    },
+    {
+      "role": "assistant",
+      "content": "I've noted that you prefer female voices. I'll remember that for future conversations.",
+      "timestamp": "2025-05-24T18:03:24.570034"
+    },
+    {
+      "role": "user",
+      "content": "Can you remind me about my meetings?",
+      "timestamp": "2025-05-24T18:03:24.597448"
+    },
+    {
+      "role": "assistant",
+      "content": "I don't have access to your calendar, but I can help you set reminders.",
+      "timestamp": "2025-05-24T18:03:24.597448"
+    },
+    {
+      "role": "user",
+      "content": "I like having conversations in a casual style",
+      "timestamp": "2025-05-24T18:03:24.621968"
+    },
+    {
+      "role": "assistant",
+      "content": "Got it! I'll keep our conversations casual and friendly.",
+      "timestamp": "2025-05-24T18:03:24.621968"
+    },
+    {
+      "role": "user",
+      "content": "What's my name again?",
+      "timestamp": "2025-05-24T18:03:24.647092"
+    },
+    {
+      "role": "assistant",
+      "content": "Based on our conversation, you're Demo User.",
+      "timestamp": "2025-05-24T18:03:24.647092"
+    },
+    {
+      "role": "user",
+      "content": "Tell me a joke",
+      "timestamp": "2025-05-24T18:03:24.671998"
+    },
+    {
+      "role": "assistant",
+      "content": "Why don't scientists trust atoms? Because they make up everything!",
+      "timestamp": "2025-05-24T18:03:24.671998"
+    }
+  ],
+  "max_messages": 10
+}
