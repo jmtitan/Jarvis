@@ -36,19 +36,17 @@ except ImportError:
 # Import custom modules
 from audio.listener import AudioListener
 from stt.whisper_stt import WhisperSTT
-from llm.ollama_client import OllamaClient
 from tts.voice_synthesizer import VoiceSynthesizer
 from ui_manager import SettingsUI, TrayIconUI
-from memory.memory_manager import MemoryManager
+from core_client import CoreClient
 
 class JarvisAssistant:
     def __init__(self):
         self.config = self._load_config()
         self.audio_listener = None
         self.stt_engine = None
-        self.llm_client = None
         self.tts_engine = None
-        self.memory_manager = None
+        self.core_client = None
         self.is_running = False
         self.audio_queue = queue.Queue()
         self.response_queue = queue.Queue()
@@ -169,32 +167,30 @@ class JarvisAssistant:
         # Initialize speech recognition
         self.stt_engine = WhisperSTT(self.config)
         print("Speech recognition initialization complete")
-        
-        # Initialize LLM client
-        self.llm_client = OllamaClient(self.config)
-        print("LLM client initialization complete")
-        
+
         # Initialize speech synthesis
         self.tts_engine = VoiceSynthesizer(self.config)
         await self.tts_engine.initialize()
         print("Speech synthesis initialization complete")
-        
-        # Initialize memory manager
-        self.memory_manager = MemoryManager(self.config)
-        self.memory_manager.set_llm_client(self.llm_client)
-        print("Memory manager initialization complete")
+
+        # Connect to the Jarvis core (LLM + memory) running in WSL.
+        # If the core isn't up yet, connection is retried lazily on first chat.
+        self.core_client = CoreClient(self.config)
+        try:
+            await self.core_client.connect()
+            print("Core client connected")
+        except Exception as e:
+            print(f"Core not reachable yet (will retry on first message): {e}")
         
     async def _shutdown_async_components(self):
         """Shutdown async components gracefully"""
         try:
-            if self.memory_manager:
-                await self.memory_manager.shutdown()
             if self.audio_listener:
                 self.audio_listener.stop()
             if self.stt_engine:
                 self.stt_engine.stop()
-            if self.llm_client:
-                await self.llm_client.close()
+            if self.core_client:
+                await self.core_client.close()
         except Exception as e:
             print(f"Error during async components shutdown: {e}")
 
@@ -251,15 +247,25 @@ class JarvisAssistant:
         
         audio_status = "Playing" if self.is_playing_audio else "Idle"
         audio_engine = "pygame" if self.pygame_available else "playsound" if PLAYSOUND_AVAILABLE else "system default"
-        
-        # Get memory statistics
+
+        # Get model + memory statistics from the WSL core
         memory_stats = {}
-        if self.memory_manager:
-            memory_stats = self.memory_manager.get_memory_stats()
-        
+        model_name = "Not initialized"
+        if self.core_client and self.main_loop and not self.shutdown_event.is_set():
+            try:
+                future = asyncio.run_coroutine_threadsafe(
+                    self.core_client.get_stats(), self.main_loop
+                )
+                core_stats = future.result(timeout=5)
+                memory_stats = core_stats.get("memory", {})
+                model_name = core_stats.get("model", {}).get("name", "Unknown")
+            except Exception as e:
+                print(f"Could not fetch core stats: {e}")
+                model_name = "Core unreachable"
+
         status = {
             "Listening status": "Running" if self.is_running else "Stopped",
-            "Current model": self.llm_client.get_model_info()["name"] if self.llm_client else "Not initialized",
+            "Current model": model_name,
             "Current voice": self.tts_engine.get_current_settings()["voice"] if self.tts_engine else "Not initialized",
             "Continuous mode": f"{continuous_status}{timing_info}",
             "Wake words required": "No" if self.continuous_mode else "Yes",
@@ -399,7 +405,16 @@ class JarvisAssistant:
         if self.is_playing_audio:
             print("User interrupted AI - stopping current speech")
             self._interrupt_audio_playback()
-            
+
+            # Best-effort: tell the core to cancel the in-flight generation
+            if self.core_client and self.main_loop and not self.shutdown_event.is_set():
+                try:
+                    asyncio.run_coroutine_threadsafe(
+                        self.core_client.interrupt(), self.main_loop
+                    )
+                except Exception as e:
+                    print(f"Failed to send interrupt to core: {e}")
+
             # Brief wait for pygame to stop (much faster than before)
             time.sleep(0.1)
             
@@ -622,112 +637,82 @@ class JarvisAssistant:
                 self._stop_pygame_audio()
         
     async def _process_text(self, text):
-        """Process text and generate response"""
-        print("Processing text...")
-        
-        # Pause continuous mode timer during AI processing to avoid expiring while AI speaks
-        if self.continuous_mode and self.continuous_timer:
-            self.continuous_timer.cancel()
-            self.continuous_timer = None
-        
-        # Check if processing was interrupted before starting
-        if self.processing_interrupted:
-            print("Processing skipped due to interruption")
+        """Stream the reply from the core sentence-by-sentence, synthesizing and
+        playing each sentence while the next is still being generated.
+
+        Two concurrent coroutines form a pipeline:
+          - producer: pulls sentences from the core stream, synthesizes each to
+                      an audio file, and enqueues the file path.
+          - consumer: plays enqueued audio files strictly in order.
+        This overlaps TTS synthesis of sentence N+1 with playback of sentence N,
+        so the assistant starts speaking as soon as the first sentence is ready.
+        """
+        print(f"Processing text: {text}")
+
+        # Reset interruption flag before processing
+        self.processing_interrupted = False
+
+        if not self.core_client:
+            print("Error: core client is not initialized")
             return
-        
-        # Check if LLM client is available
-        if not self.llm_client:
-            print("Error: LLM client is not initialized")
+        if not self.tts_engine:
+            print("Error: TTS engine is not initialized")
             return
-            
-        try:
-            # Build enhanced prompt with memory context
-            if self.memory_manager:
-                enhanced_prompt = await self.memory_manager.build_enhanced_prompt(text)
-                print(f"Using memory-enhanced prompt (length: {len(enhanced_prompt)} chars)")
-            else:
-                enhanced_prompt = text
-                print("Using simple prompt (memory manager not available)")
-            
-            # Call LLM to generate response
-            print(f"Calling LLM with enhanced prompt")
-            response = await self.llm_client.generate(enhanced_prompt)
-            
-            # Check for interruption after LLM call
-            if self.processing_interrupted:
-                print("Processing interrupted after LLM response")
-                return
-            
-            if response:
-                print(f"LLM response: {response}")
-                
-                # Check if TTS engine is available
-                if not self.tts_engine:
-                    print("Error: TTS engine is not initialized")
-                    return
-                    
-                # Synthesize speech (fast step)
-                try:
-                    audio_path = await self.tts_engine.speak(response)
-                    
-                    # Final interruption check before audio/memory operations
-                    if self.processing_interrupted or self.should_interrupt_audio:
-                        print("Text processing interrupted before audio playback")
-                        return
-                    
+
+        audio_queue = asyncio.Queue()
+        _DONE = object()
+        spoke_anything = False
+
+        def interrupted():
+            return self.processing_interrupted or self.should_interrupt_audio
+
+        async def producer():
+            try:
+                async for sentence in self.core_client.chat_stream(text):
+                    if interrupted():
+                        break
+                    print(f"Core sentence: {sentence}")
+                    try:
+                        audio_path = await self.tts_engine.speak(sentence)
+                    except Exception as e:
+                        print(f"Error during speech synthesis: {e}")
+                        continue
+                    if interrupted():
+                        break
                     if audio_path:
-                        print(f"Speech synthesis complete, saved to: {audio_path}")
-                        
-                        # Start memory storage in parallel with audio playback to reduce response time
-                        memory_task = None
-                        if self.memory_manager:
-                            print("Starting memory storage in background...")
-                            memory_task = asyncio.create_task(
-                                self._store_memory_in_background(text, response)
-                            )
-                        
-                        # Play audio (this is the main delay for user experience)
-                        await self._play_audio(audio_path)
-                        
-                        # Wait for memory storage to complete (if it's still running)
-                        if memory_task and not memory_task.done():
-                            try:
-                                await memory_task
-                                print("Background memory storage completed")
-                            except Exception as e:
-                                print(f"Error in background memory storage: {e}")
-                        
-                        # Only enable continuous conversation mode if not interrupted
-                        if not self.processing_interrupted and not self.should_interrupt_audio:
-                            print("AI response completed, enabling continuous conversation mode...")
-                            self._enable_continuous_mode()
-                        else:
-                            print("Skipping continuous mode activation due to interruption")
-                        
-                    else:
-                        print("Speech synthesis failed: no audio file generated")
-                except Exception as e:
-                    print(f"Error during speech synthesis: {e}")
-            else:
-                print("LLM returned empty response")
-                
+                        await audio_queue.put(audio_path)
+            except Exception as e:
+                print(f"Error streaming from core: {e}")
+            finally:
+                await audio_queue.put(_DONE)
+
+        async def consumer():
+            nonlocal spoke_anything
+            while True:
+                item = await audio_queue.get()
+                if item is _DONE:
+                    break
+                if interrupted():
+                    continue  # drain remaining items without playing
+                await self._play_audio(item)
+                spoke_anything = True
+
+        try:
+            await asyncio.gather(producer(), consumer())
         except Exception as e:
             print(f"Error processing text: {e}")
-            # Additional diagnostic info
-            if "Session is closed" in str(e):
-                print("Detected session closure error - this should be fixed with the new OllamaClient implementation")
-            elif "Connection" in str(e):
-                print("Connection error - check if Ollama server is running and accessible")
-            else:
-                print(f"Unexpected error type: {type(e).__name__}")
-    
-    async def _store_memory_in_background(self, user_input: str, ai_response: str):
-        """Store interaction in memory as a background task"""
-        try:
-            await self.memory_manager.process_interaction(user_input, ai_response)
-            print("Interaction stored in memory")
-        except Exception as e:
-            print(f"Error storing interaction in memory: {e}")
+            return
+
+        if not spoke_anything and not interrupted():
+            print("Core returned empty response (core offline or LLM error)")
+            return
+
+        # Only enable continuous conversation mode if not interrupted
+        if not interrupted():
+            print("AI response completed, enabling continuous conversation mode...")
+            self._enable_continuous_mode()
+        else:
+            print("Skipping continuous mode activation due to interruption")
 
     def _enable_continuous_mode(self):
         """Enable continuous conversation mode for a limited time"""

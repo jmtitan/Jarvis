@@ -24,6 +24,16 @@ var/
 venv/
 ENV/
 jarvis/
+.venv/
+vllm-venv/
+
+# Memory data (owned by the WSL core at runtime; never committed)
+memory_data/
+core/memory_data/
+
+# Hugging Face / model caches
+.cache/
+*.safetensors
 
 # IDE files
 .idea/

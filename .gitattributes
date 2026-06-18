@@ -1,0 +1,3 @@
+# Shell scripts run in WSL/Linux — always store and check out with LF
+# so the shebang and line continuations are not broken by CRLF.
+*.sh text eol=lf

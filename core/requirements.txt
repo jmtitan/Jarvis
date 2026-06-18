@@ -1,0 +1,11 @@
+# Jarvis core (WSL) dependencies
+websockets>=12.0
+aiohttp>=3.9
+pyyaml>=6.0
+numpy>=1.21.0
+
+# Optional, for higher-quality memory embeddings / search.
+# The memory system falls back to a hash-based embedding + cosine
+# similarity when these are absent, so they are not required to run.
+# faiss-cpu==1.7.4
+# sentence-transformers==2.2.2

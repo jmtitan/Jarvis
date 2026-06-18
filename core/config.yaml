@@ -23,19 +23,15 @@ memory:
   auto_summarize_threshold: 20
   fact_extraction_threshold: 5
   cleanup_days: 30
-core:
-  # Jarvis core (LLM + memory) runs in WSL. The Windows desktop client
-  # connects here over WebSocket. WSL2 localhost-forwarding makes the
-  # WSL-side service reachable on the same port. Use 127.0.0.1 (IPv4)
-  # rather than "localhost" — localhost may resolve to IPv6 (::1) first,
-  # which WSL2 forwarding does not bind, causing connection hangs.
-  host: 127.0.0.1
-  port: 8765
-ollama:
-  host: http://127.0.0.1:11434
-  max_tokens: 1000
-  model: llama3
+llm:
+  # vLLM OpenAI-compatible server (started by run_vllm.sh in WSL).
+  base_url: http://127.0.0.1:8000/v1
+  model: Qwen3-8B            # matches --served-model-name in run_vllm.sh
   temperature: 0.7
+  max_tokens: 1000
+  api_key: EMPTY            # vLLM ignores the key unless --api-key is set
+  enable_thinking: false    # Qwen3: disable chain-of-thought for low latency
+  request_timeout: 120
 stt:
   device: cpu
   language: en
@@ -55,4 +51,9 @@ tts:
 wake_word:
   enabled: true
   sensitivity: 0.7
-  words: ["jarvis", "hey", "hi"]
+  words: ["so", "hey", "hi", "emm"]
+core:
+  # WebSocket bind address for the core service.
+  # Must be 0.0.0.0 so WSL2 localhost-forwarding lets Windows reach it.
+  host: 0.0.0.0
+  port: 8765
