@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {"id":"hTitle","type":"text","x":-40,"y":-200,"width":820,"height":120,"text":"# Jarvis — Voice Interaction Pipeline\n\nOne turn across the **Windows desktop ⇄ WSL core** split: utterance → reply → speech."},
+    {"id":"hLegend","type":"text","x":820,"y":-200,"width":760,"height":120,"text":"**Legend** — 🟦 Windows desktop · 🟪 WSL core · 🟩 memory · 🟧 LLM · 🟥 barge-in.\nNodes cite `file:line`. Edge labels = the call/event. ① request ② reply."},
+    {"id":"hRepo","type":"link","x":1620,"y":-200,"width":340,"height":120,"url":"https://github.com/jmtitan/Jarvis"},
+
+    {"id":"gWin","type":"group","x":-40,"y":-20,"width":2060,"height":650,"label":"Windows Desktop — D:\\Jarvis\\src  (mic · STT · TTS · playback · hotkeys · tray)","color":"5"},
+    {"id":"gWsl","type":"group","x":140,"y":860,"width":1880,"height":300,"label":"WSL Core — ~/workspace/Jarvis/core  (LLM + memory)","color":"6"},
+
+    {"id":"n1","type":"text","x":0,"y":40,"width":260,"height":120,"color":"5","text":"**Mic capture + VAD**\nAudioListener (WebRTC VAD)\n`src/audio/listener.py`\n→ `on_audio_data`"},
+    {"id":"n2","type":"text","x":320,"y":40,"width":260,"height":120,"color":"5","text":"**Speech → text**\nWhisperSTT (whisper.cpp)\n`src/stt/whisper_stt.py`\n→ `on_stt_result`"},
+    {"id":"n3","type":"text","x":640,"y":20,"width":340,"height":170,"color":"5","text":"**Gate utterance** — `main.py:400`\n`_on_stt_result(text)`\n• clean: lowercase, strip punct, drop blank-audio\n• filter empty / <2 chars\n• **wake-word** OR **continuous-mode** gate\n→ enqueue `_process_text`"},
+    {"id":"n4","type":"text","x":1040,"y":40,"width":260,"height":120,"color":"5","text":"**Async hand-off**\n`async_task_queue` →\n`_async_task_processor` `main.py:751`\nruns coroutine on bg loop"},
+    {"id":"n5","type":"text","x":1360,"y":40,"width":260,"height":120,"color":"5","text":"**Orchestrate turn**\n`_process_text` `main.py:639`\nawait core → TTS → play\n(interrupt checks between)"},
+    {"id":"n6","type":"text","x":1680,"y":40,"width":300,"height":120,"color":"5","text":"**Core WS client**\n`CoreClient.chat` `core_client.py:114`\nsend `{type:chat,id,text}`\nawait reply by `id` (≤120s)"},
+
+    {"id":"n13","type":"text","x":600,"y":300,"width":360,"height":150,"color":"1","text":"**Barge-in / interrupt**\nnew speech while AI talking →\n`_interrupt_audio_playback` `main.py:630`\n+ `CoreClient.interrupt()` `core_client.py:124`\n→ stop playback, enter continuous mode"},
+
+    {"id":"n10","type":"text","x":1360,"y":470,"width":260,"height":120,"color":"5","text":"**Synthesize speech**\n`VoiceSynthesizer.speak`\n`src/tts/voice_synthesizer.py` (Edge TTS)\n→ `audio_path`"},
+    {"id":"n11","type":"text","x":920,"y":470,"width":260,"height":120,"color":"5","text":"**Play audio**\n`_play_audio` `main.py:523` (pygame)\npolls `should_interrupt_audio` every 50ms"},
+    {"id":"n12","type":"text","x":480,"y":470,"width":260,"height":120,"color":"5","text":"**Continuous mode**\n`_enable_continuous_mode` `main.py:706`\n10s silence timer → next turn skips wake word"},
+
+    {"id":"n7","type":"text","x":1680,"y":900,"width":300,"height":120,"color":"6","text":"**Core WS endpoint**\n`core/server.py` — bind `0.0.0.0:8765`\nroutes chat · interrupt · stats\ntags reply with `id`"},
+    {"id":"n8","type":"text","x":1140,"y":890,"width":460,"height":150,"color":"4","text":"**Build memory-enhanced prompt**\n`MemoryManager.build_enhanced_prompt` `memory_manager.py:78`\n→ `vector_store.search_similar_memories(top_k=5)`\n→ PromptBuilder: system · profile · long-term · relevant · recent · current (token-capped)"},
+    {"id":"n9","type":"text","x":700,"y":900,"width":300,"height":120,"color":"2","text":"**LLM generate**\n`OllamaClient.generate`\n`src/llm/ollama_client.py` — Ollama `llama3`\n→ `ai_response`"},
+    {"id":"n9b","type":"text","x":180,"y":885,"width":460,"height":170,"color":"4","text":"**Persist + learn**\n`process_interaction` `memory_manager.py:55`\n• add to conversation memory\n• store interaction (vector_store, importance)\n• ≥20 msgs → auto-summarize (LLM)\n• ≥10 msgs → extract user facts (LLM)\n• save JSON + `vectors.npy`"}
+  ],
+  "edges": [
+    {"id":"e1","fromNode":"n1","fromSide":"right","toNode":"n2","toSide":"left","label":"audio frames"},
+    {"id":"e2","fromNode":"n2","fromSide":"right","toNode":"n3","toSide":"left","label":"recognized text"},
+    {"id":"e3","fromNode":"n3","fromSide":"right","toNode":"n4","toSide":"left","label":"enqueue (wake word / continuous)"},
+    {"id":"e4","fromNode":"n4","fromSide":"right","toNode":"n5","toSide":"left","label":"await coroutine"},
+    {"id":"e5","fromNode":"n5","fromSide":"right","toNode":"n6","toSide":"left","label":"chat(text)"},
+    {"id":"e6","fromNode":"n6","fromSide":"bottom","toNode":"n7","toSide":"top","label":"① chat {id,text} · ws :8765","color":"6"},
+    {"id":"e7","fromNode":"n7","fromSide":"left","toNode":"n8","toSide":"right","label":"build prompt"},
+    {"id":"e8","fromNode":"n8","fromSide":"left","toNode":"n9","toSide":"right","label":"enhanced prompt"},
+    {"id":"e9","fromNode":"n9","fromSide":"left","toNode":"n9b","toSide":"right","label":"ai_response → persist"},
+    {"id":"e10","fromNode":"n9","fromSide":"bottom","toNode":"n7","toSide":"bottom","label":"reply text"},
+    {"id":"e11","fromNode":"n7","fromSide":"top","toNode":"n6","toSide":"bottom","label":"② reply {id,text} (by id)","color":"6"},
+    {"id":"e12","fromNode":"n6","fromSide":"left","toNode":"n5","toSide":"right","label":"reply text"},
+    {"id":"e13","fromNode":"n5","fromSide":"bottom","toNode":"n10","toSide":"top","label":"tts.speak(reply)"},
+    {"id":"e14","fromNode":"n10","fromSide":"left","toNode":"n11","toSide":"right","label":"audio_path"},
+    {"id":"e15","fromNode":"n11","fromSide":"left","toNode":"n12","toSide":"right","label":"on complete → 10s timer"},
+    {"id":"e16","fromNode":"n3","fromSide":"bottom","toNode":"n13","toSide":"top","label":"if AI speaking"},
+    {"id":"e17","fromNode":"n13","fromSide":"right","toNode":"n11","toSide":"left","label":"stop pygame"}
+  ]
+}

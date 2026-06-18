@@ -1,0 +1,52 @@
+{
+  "nodes": [
+    {"id":"aTitle","type":"text","x":-40,"y":-180,"width":900,"height":120,"text":"# Jarvis — Current Architecture\n\nTwo processes over one WebSocket. Hardware-bound work on **Windows**; **LLM + memory** in WSL."},
+    {"id":"aLegend","type":"text","x":900,"y":-180,"width":740,"height":120,"text":"**Legend** — 🟦 Windows · 🟪 WSL core · 🟩 memory/data · 🟧 external service.\nBoundary = WebSocket `:8765`. Red edge = wired-incorrectly (see status)."},
+    {"id":"aRepo","type":"link","x":1680,"y":-180,"width":300,"height":120,"url":"https://github.com/jmtitan/Jarvis"},
+
+    {"id":"gWin","type":"group","x":-40,"y":-20,"width":960,"height":760,"label":"Windows Desktop — D:\\Jarvis\\src","color":"5"},
+    {"id":"gWsl","type":"group","x":1120,"y":-20,"width":960,"height":760,"label":"WSL Core — ~/workspace/Jarvis/core","color":"6"},
+    {"id":"gExt","type":"group","x":300,"y":800,"width":1500,"height":210,"label":"External services / binaries"},
+
+    {"id":"a_main","type":"text","x":0,"y":20,"width":880,"height":120,"color":"5","text":"**JarvisAssistant** `main.py`\nbg asyncio thread + queues · wake-word / continuous · interruption · orchestration"},
+    {"id":"a_listen","type":"text","x":0,"y":170,"width":280,"height":100,"color":"5","text":"**AudioListener** `audio/listener.py`\nmic + WebRTC VAD"},
+    {"id":"a_stt","type":"text","x":300,"y":170,"width":280,"height":100,"color":"5","text":"**WhisperSTT** `stt/whisper_stt.py`\nspeech → text"},
+    {"id":"a_tts","type":"text","x":600,"y":170,"width":280,"height":100,"color":"5","text":"**VoiceSynthesizer** `tts/voice_synthesizer.py`\nEdge TTS"},
+    {"id":"a_play","type":"text","x":0,"y":300,"width":280,"height":100,"color":"5","text":"**Playback** `_play_audio` (pygame)\ninterruptible (50ms poll)"},
+    {"id":"a_ui","type":"text","x":300,"y":300,"width":280,"height":100,"color":"5","text":"**UI** `ui_manager.py`\ntray · settings · hotkeys"},
+    {"id":"a_cc","type":"text","x":600,"y":300,"width":280,"height":120,"color":"5","text":"**CoreClient** `core_client.py`\nWebSocket client (request/reply by id)"},
+    {"id":"a_cfgw","type":"text","x":0,"y":450,"width":280,"height":90,"color":"5","text":"**config.yaml** (Windows)\naudio · stt · tts · hotkeys · core host"},
+
+    {"id":"a_srv","type":"text","x":1160,"y":20,"width":880,"height":110,"color":"6","text":"**WS endpoint** `core/server.py` — bind `0.0.0.0:8765`\nroutes chat · interrupt · stats"},
+    {"id":"a_chat","type":"text","x":1160,"y":150,"width":880,"height":90,"color":"6","text":"**chat_service.py**\nbuild prompt → generate → persist"},
+    {"id":"a_oll","type":"text","x":1160,"y":270,"width":420,"height":110,"color":"2","text":"**OllamaClient** `llm/ollama_client.py`\n→ Ollama (llama3)"},
+    {"id":"a_mm","type":"text","x":1600,"y":270,"width":440,"height":110,"color":"4","text":"**MemoryManager** `memory/memory_manager.py`\nbuild_enhanced_prompt · process_interaction"},
+    {"id":"a_persona","type":"text","x":1160,"y":400,"width":420,"height":110,"color":"1","text":"**Persona** `prompts/Emma.md`\nsystem prompt — ⚠️ orphaned (see status.canvas)"},
+    {"id":"a_pb","type":"text","x":1600,"y":400,"width":210,"height":110,"color":"4","text":"**PromptBuilder**\n6-section prompt\n(hardcoded system)"},
+    {"id":"a_vs","type":"text","x":1830,"y":400,"width":210,"height":110,"color":"4","text":"**VectorStore**\nsimilarity search"},
+    {"id":"a_cfgc","type":"text","x":1160,"y":530,"width":420,"height":90,"color":"6","text":"**config.yaml** (core)\nollama · memory · core bind"},
+    {"id":"a_data","type":"text","x":1600,"y":530,"width":440,"height":110,"color":"4","text":"**memory_data/**\nuser_profile · conversation · long_term · entries · `vectors.npy` (JSON + npy)"},
+
+    {"id":"a_whisper","type":"text","x":320,"y":840,"width":420,"height":120,"color":"2","text":"**whisper.cpp**\n`whisper_bin/` + `models/` (tiny/base.en)"},
+    {"id":"a_edge","type":"text","x":760,"y":840,"width":420,"height":120,"color":"2","text":"**Edge TTS** (cloud)\nneeds internet"},
+    {"id":"a_ollama_ext","type":"text","x":1200,"y":840,"width":420,"height":120,"color":"2","text":"**Ollama** (WSL, GPU)\nHTTP `:11434` · model llama3"}
+  ],
+  "edges": [
+    {"id":"ae1","fromNode":"a_listen","fromSide":"right","toNode":"a_stt","toSide":"left","label":"audio frames"},
+    {"id":"ae2","fromNode":"a_stt","fromSide":"top","toNode":"a_main","toSide":"bottom","label":"text"},
+    {"id":"ae3","fromNode":"a_main","fromSide":"bottom","toNode":"a_cc","toSide":"top","label":"utterance"},
+    {"id":"ae4","fromNode":"a_main","fromSide":"bottom","toNode":"a_tts","toSide":"top","label":"reply → speak"},
+    {"id":"ae5","fromNode":"a_tts","fromSide":"left","toNode":"a_play","toSide":"right","label":"audio file"},
+    {"id":"ae6","fromNode":"a_cc","fromSide":"right","toNode":"a_srv","toSide":"left","label":"WebSocket :8765 · JSON · 127.0.0.1 (IPv4)","color":"6"},
+    {"id":"ae7","fromNode":"a_srv","fromSide":"bottom","toNode":"a_chat","toSide":"top","label":"dispatch"},
+    {"id":"ae8","fromNode":"a_chat","fromSide":"bottom","toNode":"a_oll","toSide":"top","label":"generate"},
+    {"id":"ae9","fromNode":"a_chat","fromSide":"bottom","toNode":"a_mm","toSide":"top","label":"prompt · persist"},
+    {"id":"ae10","fromNode":"a_mm","fromSide":"bottom","toNode":"a_pb","toSide":"top","label":"assemble"},
+    {"id":"ae11","fromNode":"a_mm","fromSide":"bottom","toNode":"a_vs","toSide":"top","label":"search / add"},
+    {"id":"ae12","fromNode":"a_vs","fromSide":"bottom","toNode":"a_data","toSide":"top","label":"load / save (json + npy)"},
+    {"id":"ae13","fromNode":"a_persona","fromSide":"top","toNode":"a_chat","toSide":"bottom","label":"system prompt — NOT wired","color":"1"},
+    {"id":"ae14","fromNode":"a_stt","fromSide":"bottom","toNode":"a_whisper","toSide":"top","label":"transcribe"},
+    {"id":"ae15","fromNode":"a_tts","fromSide":"bottom","toNode":"a_edge","toSide":"top","label":"synthesize"},
+    {"id":"ae16","fromNode":"a_oll","fromSide":"bottom","toNode":"a_ollama_ext","toSide":"top","label":"HTTP :11434"}
+  ]
+}

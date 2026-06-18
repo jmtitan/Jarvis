@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {"id":"sTitle","type":"text","x":-20,"y":-180,"width":1180,"height":120,"text":"# Jarvis — Goals · Approach · Progress\n\nWhat we're building, how, and where it stands. Code / structure / file details live in architecture.canvas."},
+    {"id":"sFocus","type":"text","x":1180,"y":-180,"width":780,"height":120,"text":"**Current focus** — more human-like conversation + personalized memory.\n**Near-term task** — give the conversation a persona (system prompt)."},
+
+    {"id":"gGoals","type":"group","x":-20,"y":-20,"width":400,"height":760,"label":"🎯 Goals","color":"6"},
+    {"id":"gApproach","type":"group","x":380,"y":-20,"width":400,"height":760,"label":"🧭 Approach / method","color":"3"},
+    {"id":"gDone","type":"group","x":780,"y":-20,"width":400,"height":760,"label":"✅ Done","color":"4"},
+    {"id":"gProg","type":"group","x":1180,"y":-20,"width":400,"height":760,"label":"🚧 In progress","color":"2"},
+    {"id":"gNext","type":"group","x":1580,"y":-20,"width":400,"height":760,"label":"⏳ Next","color":"5"},
+    {"id":"gAtt","type":"group","x":-20,"y":780,"width":2000,"height":240,"label":"⚠️ Attention","color":"1"},
+
+    {"id":"g1","type":"text","x":0,"y":20,"width":360,"height":180,"color":"6","text":"**Human-like conversation**\n• interruptible anytime ✓\n• use only the latest speech\n• natural tone & pacing\n• context + emotion"},
+    {"id":"g2","type":"text","x":0,"y":220,"width":360,"height":180,"color":"6","text":"**Memory / personalization**\n• remember user habits\n• long-term store + retrieval ✓\n• personalized style\n• preference learning"},
+    {"id":"g3","type":"text","x":0,"y":420,"width":360,"height":160,"color":"6","text":"**MCP / agent**\n• operate desktop files\n• email\n• schedule management\n• app control"},
+
+    {"id":"m1","type":"text","x":400,"y":20,"width":360,"height":120,"color":"3","text":"**Offline-first**\nfully offline, privacy-preserving"},
+    {"id":"m2","type":"text","x":400,"y":160,"width":360,"height":140,"color":"3","text":"**Split the heavy work**\ndesktop handles hardware only (mic · STT · TTS · playback); LLM + memory move to WSL"},
+    {"id":"m3","type":"text","x":400,"y":320,"width":360,"height":140,"color":"3","text":"**Memory-augmented**\nvector search + auto-summary + fact extraction → assemble a personalized prompt"},
+    {"id":"m4","type":"text","x":400,"y":480,"width":360,"height":120,"color":"3","text":"**Human-like interaction**\nwake word + continuous conversation + barge-in"},
+    {"id":"m5","type":"text","x":400,"y":620,"width":360,"height":120,"color":"3","text":"**Flowchart-driven development**\nreview & drive work via .canvas architecture + status diagrams"},
+
+    {"id":"d1","type":"text","x":800,"y":20,"width":360,"height":110,"color":"4","text":"**Core voice loop**\nlisten → recognize → answer → synthesize → play"},
+    {"id":"d2","type":"text","x":800,"y":150,"width":360,"height":90,"color":"4","text":"**Wake word + continuous conversation**"},
+    {"id":"d3","type":"text","x":800,"y":260,"width":360,"height":90,"color":"4","text":"**Barge-in**\nuser speaks → AI stops"},
+    {"id":"d4","type":"text","x":800,"y":370,"width":360,"height":90,"color":"4","text":"**Tray · settings · hotkeys**"},
+    {"id":"d5","type":"text","x":800,"y":480,"width":360,"height":110,"color":"4","text":"**Memory system**\nsearch · summaries · fact extraction"},
+
+    {"id":"p1","type":"text","x":1200,"y":20,"width":360,"height":150,"color":"2","text":"**Desktop ⇄ WSL split**\nheavy work moved to WSL; integrating over WebSocket"},
+    {"id":"p2","type":"text","x":1200,"y":190,"width":360,"height":150,"color":"2","text":"**Persona (Emma) in conversation**\n+ TTS network resilience — verifying"},
+    {"id":"p3","type":"text","x":1200,"y":360,"width":360,"height":120,"color":"2","text":"**Flowchart workflow**\narchitecture / status diagrams rolling out"},
+
+    {"id":"n1","type":"text","x":1600,"y":20,"width":360,"height":140,"color":"5","text":"**Make the persona actually take effect**\nload the system prompt on the core side"},
+    {"id":"n2","type":"text","x":1600,"y":180,"width":360,"height":130,"color":"5","text":"**Use only the latest speech + emotion sensing**\n(human-like goal)"},
+    {"id":"n3","type":"text","x":1600,"y":330,"width":360,"height":120,"color":"5","text":"**MCP / agent capabilities**\n(future goal)"},
+
+    {"id":"r2","type":"text","x":380,"y":820,"width":760,"height":180,"color":"1","text":"**Split needs end-to-end verification**\nFull path voice → core → reply: confirm persona, memory, and barge-in all work."},
+    {"id":"r1","type":"text","x":1180,"y":820,"width":760,"height":180,"color":"1","text":"**Persona currently has no effect**\nAfter the desktop ⇄ WSL split, the conversation no longer carries the system prompt; the core still uses its default prompt.\n→ Move persona (Emma) loading to the core side."}
+  ],
+  "edges": [
+    {"id":"se1","fromNode":"p2","fromSide":"bottom","toNode":"r1","toSide":"top","label":"current blocker"},
+    {"id":"se2","fromNode":"n1","fromSide":"bottom","toNode":"r1","toSide":"top","label":"fix"}
+  ]
+}
