@@ -7,11 +7,17 @@ sounddevice>=0.4.6
 scipy>=1.10.0
 edge-tts>=6.1.9
 requests>=2.31.0
-playsound==1.2.2
+pygame>=2.1.0
+# playsound3 is the maintained successor to the unmaintained `playsound`
+# package (whose 1.2.2 sdist fails to build on modern pip/Python, which is why
+# people fell back to the now-deleted github.com/taconi/playsound fork).
+playsound3>=2.0.0
 PyAudio>=0.2.13
 numpy>=1.23.0
 webrtcvad>=2.0.10
-asyncio>=3.4.3
-tkinter
 winshell>=0.6
-pyshortcuts>=1.8.0 
+pyshortcuts>=1.8.0
+# Note: tkinter and asyncio are part of the Python standard library and must
+# NOT be pip-installed (the PyPI `asyncio` package is obsolete and `tkinter`
+# has no PyPI distribution — both break `pip install -r requirements.txt`).
+# On Linux install tkinter via the OS, e.g. `sudo apt install python3-tk`. 
