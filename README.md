@@ -99,9 +99,9 @@ The LLM + memory core runs in WSL2. From a WSL (Ubuntu) shell:
 cd ~/workspace/Jarvis          # the repo's core/ directory deployed here
 
 # vLLM server (its own venv); Triton needs Python headers to JIT-compile
+sudo apt-get update && sudo apt-get install -y python3-dev build-essential
 python3 -m venv vllm-venv
 ./vllm-venv/bin/pip install vllm
-sudo apt-get install -y python3-dev build-essential
 
 # core service (LLM client + memory)
 cd core
