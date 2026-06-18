@@ -23,15 +23,21 @@ except ImportError:
     PYGAME_AVAILABLE = False
     print("pygame not available, please install with: pip install pygame")
 
-# Import playsound library as fallback
+# Import playsound library as fallback (prefer the maintained playsound3,
+# fall back to the legacy playsound package if that's what's installed)
 try:
-    from playsound import playsound
+    from playsound3 import playsound
     PLAYSOUND_AVAILABLE = True
-    print("Found playsound library")
+    print("Found playsound3 library")
 except ImportError:
-    PLAYSOUND_AVAILABLE = False
-    print("playsound not available, please install with: pip install playsound==1.2.2")
-    # Don't exit, other playback methods may be available
+    try:
+        from playsound import playsound
+        PLAYSOUND_AVAILABLE = True
+        print("Found playsound library")
+    except ImportError:
+        PLAYSOUND_AVAILABLE = False
+        print("playsound not available, please install with: pip install playsound3")
+        # Don't exit, other playback methods may be available
 
 # Import custom modules
 from audio.listener import AudioListener

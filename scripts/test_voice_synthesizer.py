@@ -11,15 +11,20 @@ sys.path.append(str(root_dir))
 
 from src.tts.voice_synthesizer import VoiceSynthesizer
 
-# 导入playsound库
+# 导入playsound库（优先使用维护中的 playsound3，回退到旧版 playsound）
 try:
-    from playsound import playsound
+    from playsound3 import playsound
     PLAYSOUND_AVAILABLE = True
-    print("找到 playsound 库")
+    print("找到 playsound3 库")
 except ImportError:
-    PLAYSOUND_AVAILABLE = False
-    print("playsound 不可用，请使用 pip install playsound==1.2.2 安装")
-    sys.exit(1)  # 如果playsound不可用，则退出程序
+    try:
+        from playsound import playsound
+        PLAYSOUND_AVAILABLE = True
+        print("找到 playsound 库")
+    except ImportError:
+        PLAYSOUND_AVAILABLE = False
+        print("playsound 不可用，请使用 pip install playsound3 安装")
+        sys.exit(1)  # 如果playsound不可用，则退出程序
 
 async def play_audio(file_path):
     """播放音频文件的函数"""
